@@ -1,0 +1,956 @@
+@media screen and (max-width:1441px) {
+
+    .service-item-inner-content {
+        padding: 30px 0px 0 18px;
+    }
+
+    .footer-right-content {
+        padding: 0 0 3% 1%;
+    }
+
+}
+
+@media screen and (max-width:1025px) {
+
+    h1 {
+        font-size: 35px;
+    }
+
+    h2,
+    h3 {
+        font-size: 30px;
+    }
+
+    h4,
+    h5 {
+        font-size: 28px;
+    }
+
+    h6 {
+        font-size: 20px;
+    }
+
+    p {
+        font-size: 15px;
+        line-height: 1.6em;
+    }
+
+    .navbar {
+        padding: 1% 2%;
+        height: 85px;
+    }
+
+    .nav-logo {
+        width: 40%;
+    }
+
+    .nav-logo img {
+        width: 210px;
+    }
+
+    .hero-container {
+        padding: 5% 2%;
+    }
+
+    .hero-text {
+        width: 54%;
+    }
+
+    .hero-image {
+        width: 46%;
+    }
+
+    .hero-image img {
+        width: 400px;
+    }
+
+    .slider-section .slider-logo7,
+    .slider-logo6 {
+        display: none;
+    }
+
+    .slider-section {
+        padding: 1%;
+    }
+
+    .service-section {
+        padding: 7% 2% 6% 2%;
+    }
+
+    .service-item-inner-content img {
+        width: 515px;
+    }
+
+    .service-items-content {
+        width: 43%;
+    }
+
+    .service-items-content i {
+        font-size: 17px;
+        margin-right: 10px;
+        height: 40px;
+        width: 40px;
+    }
+
+    .website-development-content,
+    .mobile-app-development-content,
+    .front-end-development-content {
+        padding: 20px;
+    }
+
+    .service-items-content h3 {
+        font-size: 18px;
+    }
+
+    .service-item-inner-content {
+        width: 55%;
+        margin-left: 25px;
+        padding: 25px 0px 0 15px;
+    }
+
+    .service-items-content p {
+        font-size: 13px;
+    }
+
+    .projects-number-section {
+        padding: 6% 2% 5% 2%;
+    }
+
+    .projects-number-section-header {
+        padding: 0 4%;
+    }
+
+    .review-section {
+        padding: 7% 2% 5% 2%;
+    }
+
+    .review-text {
+        width: 32%;
+        padding: 20px 25px;
+    }
+
+    .mid-vision-section {
+        padding: 2% 2% 4% 2%;
+    }
+
+    .slider-content2 {
+        width: 150px;
+        padding-left: 5px;
+    }
+
+    .our-work-section {
+        padding: 7% 2% 6% 2%;
+    }
+
+    .slider-content2 {
+        overflow: hidden;
+    }
+
+    .our-work-content-text {
+        width: 50%;
+        margin-right: 3%;
+        padding: 40px;
+    }
+
+    .cms-content-dropdown-text,
+    .custom-web-dev-section {
+        margin-bottom: 20px;
+    }
+
+    .footer-section {
+        padding: 1% 2%;
+    }
+
+    .footer-left-content ul a {
+        font-size: 15px;
+        margin-right: 22px;
+    }
+
+    .footer-right-content ul {
+        width: 100%;
+    }
+
+    .footer-right-content li {
+        line-height: 1.5em;
+    }
+
+    .footer-right-content {
+        padding-bottom: 0%;
+    }
+
+    .footer-line-content {
+        padding: 0% 2% 1% 2%;
+    }
+
+
+    /* --------------------About-Us-section-start------------------------- */
+
+
+    .au-hero-container {
+        padding: 5% 2%;
+    }
+
+    .au-hero-container h1 {
+        font-size: 35px;
+    }
+
+    .au-hero-container .au-hero-text {
+        padding: 0 5% 3% 5%;
+    }
+
+    .hero-image-bottom-text h2 {
+        font-size: 33px;
+    }
+
+    .our-projects {
+        width: 32%;
+    }
+
+    .expertise-technology-section {
+        padding: 0 2% 4% 2%;
+    }
+
+    .expertise-technology-header {
+        width: 47%;
+    }
+
+    .expertise-technology-section {
+        display: block;
+    }
+
+    .expertise-technology-header {
+        width: 100%;
+        padding: 0 10%;
+        text-align: center;
+    }
+
+    .expertise-technology-header p:nth-child(1) {
+        display: inline;
+    }
+
+    .expertise-technology-text {
+        padding: 3% 3% 0 3%;
+        width: 100%;
+    }
+
+    .dynamic-team-section {
+        padding: 0 2% 5% 2%;
+    }
+
+    .dynamic-team-section-text {
+        right: 10%;
+        padding: 40px;
+        width: 80%;
+    }
+
+    .dynamic-team-contents {
+        padding: 17% 2% 5% 2%;
+    }
+
+    .business-transformation-section {
+        padding: 5% 2%;
+    }
+
+    .business-transformation-section-header {
+        padding: 0 10%;
+    }
+
+    /* --------------------About-Us-section-end------------------------- */
+
+}
+
+@media screen and (min-width:850px) {
+    .menubar-icon {
+        display: none;
+    }
+}
+
+@media screen and (max-width:850px) {
+
+    h2,
+    h3 {
+        font-size: 26px;
+    }
+
+    .nav-text,
+    .slider-logo6,
+    .service-item-inner-content,
+    .slider-logo5,
+    .review-text:nth-child(3) {
+        display: none;
+    }
+
+    .hero-text {
+        width: 100%
+    }
+
+    .hero-container-button {
+        font-size: 15px;
+        padding: 10px 20px;
+        margin-top: 30px;
+    }
+
+    .nav-logo img {
+        width: 190px;
+    }
+
+    .navbar {
+        justify-content: space-between;
+        padding: 1.5% 4%;
+    }
+
+    .hero-container {
+        display: block;
+        padding: 5.5% 6%;
+    }
+
+    .hero-image {
+        padding-top: 6%;
+        display: flex;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .service-section {
+        padding: 8% 3% 6% 3%;
+    }
+
+    .service-items {
+        justify-content: center;
+    }
+
+    .service-items-content {
+        width: 75%;
+    }
+
+    .section-header {
+        padding: 0 3%;
+    }
+
+    .service-items-content i {
+        font-size: 20px;
+        margin-right: 15px;
+        height: 45px;
+        width: 45px;
+    }
+
+    .projects-number-section,
+    .projects-number-section {
+        padding: 8% 5% 6% 5%;
+    }
+
+    .projects-number-inner-section {
+        flex-wrap: wrap;
+        padding-top: 2%;
+    }
+
+    .box {
+        width: 45%;
+        padding-top: 4%;
+    }
+
+    .review-section {
+        padding: 9% 4% 6% 4%;
+    }
+
+    .review-text {
+        width: 48%;
+    }
+
+    .mid-vision-section {
+        padding: 2% 6% 4% 6%;
+    }
+
+    .mid-vision-button {
+        font-size: 15px;
+        padding: 9px 25px;
+    }
+
+    .mid-vision-text {
+        width: 65%;
+    }
+
+    .our-work-section {
+        padding: 8% 4% 6% 4%;
+    }
+
+    .slider-content1,
+    .slider-content1 img {
+        width: 300px;
+    }
+
+    .slider-content2 {
+        display: none;
+    }
+
+    .our-work-content-text {
+        width: 53%;
+        padding: 35px 25px;
+        margin-right: 3%;
+        border-radius: 25px;
+    }
+
+    .inquiry-section {
+        padding: 4% 6%;
+    }
+
+    .inquiry-button {
+        padding: 7px 20px;
+    }
+
+    .inquiry-section h5 {
+        font-size: 28px;
+    }
+
+    .footer-section {
+        padding: 1% 5%;
+    }
+
+    .footer-left-content p,
+    .footer-left-content ul {
+        width: 90%;
+    }
+
+    .footer-right-content {
+        padding: 0 0 3% 0%;
+    }
+
+    .footer-line-content {
+        padding: 0% 5% 1% 5%;
+    }
+
+    .footer-line-contact-icons i {
+        font-size: 17px;
+        height: 35px;
+        width: 35px;
+    }
+
+    /* --------------------About-Us-section-start------------------------- */
+
+    .au-hero-container {
+        padding: 5% 4%;
+    }
+
+    .au-hero-container h1 {
+        font-size: 31px;
+    }
+
+    .hero-image-bottom-text h2 {
+        font-size: 30px;
+    }
+
+    .our-projects {
+        width: 28%;
+        font-size: 15px;
+    }
+
+    .expertise-technology-section {
+        padding: 0 4% 4% 4%;
+    }
+
+    .expertise-technology-header {
+        padding: 0 7%;
+    }
+
+    .dynamic-team-section {
+        padding: 0px 4% 5% 4%;
+    }
+
+    .dynamic-team-section-text {
+        position: unset;
+        margin-top: 5%;
+        width: 100%;
+    }
+
+    .dynamic-team-contents {
+        padding: 4% 4% 6% 4%;
+    }
+
+    .dynamic-team-content {
+        font-size: 14px;
+    }
+
+    .business-transformation-section {
+        padding: 5% 4%;
+    }
+
+    .business-transformation-section-header {
+        padding: 0;
+    }
+
+    .expertise-technology-header h3,
+    .business-transformation-section-header h3 {
+        font-size: 32px;
+    }
+
+    .business-transformation-items {
+        flex-wrap: wrap;
+    }
+
+    .business-transformation-item {
+        width: 48%;
+    }
+
+    .business-transformation-item:nth-child(3) {
+        width: 100%;
+        padding-top: 20px;
+    }
+
+    /* --------------------About-Us-section-end------------------------- */
+
+}
+
+@media screen and (max-width:550px) {
+
+    h1 {
+        font-size: 25px;
+    }
+
+    h2,
+    h3 {
+        font-size: 24px;
+        line-height: 1.5em;
+    }
+
+    p {
+        font-size: 14px;
+    }
+
+    .service-items-content,
+    .box,
+    .review-text,
+    .mid-vision-text,
+    .our-work-content-text,
+    .footer-left-content,
+    .footer-left-content p,
+    .footer-left-content ul,
+    .footer-right-content {
+        width: 100%;
+    }
+
+    .projects-number-inner-section,
+    .review-text-contents,
+    .mid-vision-section,
+    .our-work-content,
+    .footer-section,
+    .footer-line-content {
+        display: block;
+    }
+
+    .nav-logo img {
+        width: 170px;
+    }
+
+    .navbar {
+        justify-content: space-between;
+        padding: 1.5% 4%;
+        height: 65px;
+    }
+
+    .hero-container {
+        padding: 5.5% 5%;
+    }
+
+    .hero-container-button {
+        font-size: 14px;
+        padding: 9px 15px;
+        margin-top: 20px;
+    }
+
+    .hero-image img {
+        width: 330px;
+    }
+
+    .slider-logo4,
+    .slider-logo3 {
+        display: none;
+    }
+
+    .slider-section i {
+        font-size: 14px;
+        padding: 8px 11px;
+    }
+
+    .service-section {
+        padding: 10% 4% 6% 4%;
+    }
+
+    .section-header,
+    .projects-number-section-header,
+    .section-review-header {
+        padding: 0;
+    }
+
+    .text-head p {
+        padding: 5px 15px;
+    }
+
+    .section-header h2,
+    .projects-number-section-header h3 {
+        padding: 3% 0;
+    }
+
+    .service-items-content {
+        padding-top: 5%;
+    }
+
+    .service-items-content i {
+        font-size: 18px;
+        margin-right: 11px;
+        height: 40px;
+        width: 40px;
+    }
+
+    .website-development-content,
+    .mobile-app-development-content,
+    .front-end-development-content {
+        padding: 12px;
+    }
+
+    .projects-number-section {
+        padding: 10% 4% 10% 4%;
+    }
+
+    .projects-text-head p {
+        padding: 8px 15px;
+        font-size: 12px;
+    }
+
+    .projects-number-inner-section {
+        padding-top: 0;
+    }
+
+    .review-text {
+        margin-bottom: 15px;
+    }
+
+    .review-text p {
+        height: 110px;
+    }
+
+    .mid-vision-section {
+        padding: 5% 4% 6% 4%;
+        text-align: center;
+    }
+
+    .mid-vision-button {
+        font-size: 12px;
+        padding: 9px 16px;
+    }
+
+    .our-work-content-text {
+        margin-right: 0%;
+        margin-bottom: 15px;
+    }
+
+    .slider-content1,
+    .slider-content1 img {
+        width: 100%;
+    }
+
+    .inquiry-section h5 {
+        font-size: 20px;
+    }
+
+    .inquiry-button {
+        font-size: 14px;
+    }
+
+    .footer-section {
+        padding: 1% 4%;
+    }
+
+    .footer-left-content ul {
+        display: none;
+    }
+
+    .footer-right-content {
+        padding: 3% 0 3% 0%;
+    }
+
+    .footer-line-content {
+        padding: 0% 4% 1% 4%;
+        line-height: 2em;
+    }
+
+    .copyright-text,
+    .footer-privacy-text {
+        justify-content: center;
+    }
+
+    .footer-line-contact-icons {
+        text-align: center;
+    }
+
+    /* --------------------About-Us-section-start------------------------- */
+
+    .au-hero-text-head p,
+    .expertise-technology-header p:nth-child(1),
+    .dynamic-team-section-text p:nth-child(1),
+    .business-transformation-section-header p:nth-child(1) {
+        font-size: 13px;
+    }
+
+    .au-hero-container h1 {
+        font-size: 27px;
+    }
+
+    .hero-image-bottom-text {
+        display: block;
+    }
+
+    .our-projects {
+        text-align: center;
+        width: 100%;
+        padding-bottom: 20px;
+    }
+
+    .expertise-technology-header {
+        padding: 4% 0;
+    }
+
+    .expertise-technology-header h3,
+    .business-transformation-section-header h3 {
+        font-size: 24px;
+    }
+
+    .dynamic-team-section-text {
+        padding: 20px;
+    }
+
+    .dynamic-team-section h3 {
+        font-size: 22px;
+        padding: 2% 0;
+    }
+
+    .dynamic-team-contents {
+        display: block;
+        text-align: center;
+    }
+
+    .dynamic-team-content {
+        width: 100%;
+        padding-bottom: 20px;
+    }
+
+    .business-transformation-section-header {
+        padding-bottom: 25px;
+    }
+
+    .business-transformation-section-header h3 {
+        font-size: 22px;
+        line-height: 1.4em;
+        padding: 2% 0;
+    }
+
+    .business-transformation-items {
+        display: block;
+        padding-top: 0;
+    }
+
+    .business-transformation-item:nth-child(3) {
+        padding-top: 0;
+    }
+
+    .business-transformation-item {
+        width: 100%;
+        padding-bottom: 20px;
+    }
+
+    /* --------------------About-Us-section-end------------------------- */
+
+}
+
+@media screen and (max-width:400px) {
+
+    h1 {
+        font-size: 22px;
+    }
+
+    h2,
+    h3 {
+        font-size: 21px;
+        line-height: 1.8em;
+    }
+
+    h6 {
+        font-size: 17px;
+    }
+
+    p {
+        font-size: 13px;
+    }
+
+    .navbar {
+        justify-content: space-between;
+        padding: 1.5% 2%;
+        height: 50px;
+    }
+
+    .nav-logo img {
+        width: 130px;
+    }
+
+    .menubar-icon i {
+        font-size: 15px;
+        padding: 5px 6px;
+    }
+
+    .hero-container {
+        padding: 5.5% 2%;
+    }
+
+    .hero-text-head p {
+        padding: 4px 15px;
+        font-size: 12px;
+    }
+
+    .hero-container-button {
+        font-size: 13px;
+        padding: 7px 10px;
+        margin-top: 13px;
+    }
+
+    .hero-image img {
+        width: 260px;
+    }
+
+    .slider-logo2 {
+        display: none;
+    }
+
+    .service-section {
+        padding: 10% 2% 6% 2%;
+    }
+
+    .text-head p {
+        padding: 5px 10px;
+        font-size: 11px;
+    }
+
+    .website-development-content,
+    .mobile-app-development-content,
+    .front-end-development-content {
+        padding: 10px;
+    }
+
+    .service-items-content i {
+        font-size: 13px;
+        margin-right: 8px;
+        height: 33px;
+        width: 35px;
+    }
+
+    .service-items-content h3 {
+        font-size: 16px;
+    }
+
+    .projects-number-section {
+        padding: 10% 2% 10% 2%;
+    }
+
+    .projects-text-head p {
+        padding: 6px 8px;
+        font-size: 9px;
+    }
+
+    #projects-number p {
+        font-size: 30px;
+    }
+
+    .review-section {
+        padding: 9% 2% 6% 2%;
+    }
+
+    .review-text p {
+        height: 130px;
+    }
+
+    .our-work-section {
+        padding: 8% 2% 6% 2%;
+    }
+
+    .our-work-content-text {
+        padding: 25px 15px;
+    }
+
+    .slider-content1,
+    .slider-content1 img {
+        width: 100%;
+    }
+
+    .inquiry-section h5 {
+        font-size: 17px;
+    }
+
+    .inquiry-button {
+        padding: 6px 15px;
+    }
+
+    .footer-right-content li {
+        font-size: 13px;
+    }
+
+    .copyright-text p,
+    .footer-privacy-text a {
+        font-size: 12px;
+    }
+
+    /* --------------------About-Us-section-start------------------------- */
+
+    .au-hero-container {
+        padding: 5% 2%;
+    }
+
+    .au-hero-text-head p,
+    .expertise-technology-header p:nth-child(1),
+    .dynamic-team-section-text p:nth-child(1),
+    .business-transformation-section-header p:nth-child(1) {
+        font-size: 12px;
+    }
+
+    .au-hero-container .au-hero-text {
+        padding: 0 0% 6% 0%;
+    }
+
+    .au-hero-container h1 {
+        font-size: 23px;
+    }
+
+    .hero-image-bottom-text h2 {
+        font-size: 23px;
+    }
+
+    .hero-image-bottom-text p,
+    .dynamic-team-content p {
+        font-size: 17px;
+    }
+
+    .our-projects,.dynamic-team-content,.items-inner-text p {
+        font-size: 13px;
+    }
+
+    .expertise-technology-section {
+        padding: 0 2% 4% 2%;
+    }
+
+    .expertise-technology-header h3,
+    .business-transformation-section-header h3,.dynamic-team-section h3{
+        font-size: 22px;
+        line-height: 1.4em;
+    }
+
+    .expertise-technology-text {
+        padding: 3% 3% 0 10%;
+    }
+
+    .dynamic-team-section {
+        padding: 0px 2% 5% 2%;
+    }
+
+    .dynamic-team-section-text {
+        padding: 10px;
+    }
+
+    /* --------------------About-Us-section-end------------------------- */
+}
