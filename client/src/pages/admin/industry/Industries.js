@@ -143,7 +143,7 @@ const Industries = () => {
         <main>
           <div className="head-title">
             <div className="adminleft">
-              <h1>Industry Page</h1>
+              <h1>Industr Page</h1>
             </div>
           </div>
 
