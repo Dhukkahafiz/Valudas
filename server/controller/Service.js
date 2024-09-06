@@ -97,7 +97,11 @@ const addservice = (req, res) => {
     parent_id,
     Created_date,
     Created_by,
+<<<<<<< HEAD
     Meta_tags,
+=======
+        Meta_tags,
+>>>>>>> 7f0bd4d54ae5eacb9abb139c7f27365c3f6c7442
     Meta_keyword,
     Meta_desc,
     canonical_url
