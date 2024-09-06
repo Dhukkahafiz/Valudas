@@ -43,7 +43,6 @@ app.use("/", Setting);
 
 // port no
 const PORT = 5005;
-
 connectDB.connect((err) => {
   if (err) {
     console.error(err.message);

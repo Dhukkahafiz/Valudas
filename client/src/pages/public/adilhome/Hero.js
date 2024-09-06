@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useRef } from "react";
 import "../../../assets/css/public/hero.css";
 import { useValudasData } from "../../../context/Storage";
@@ -40,8 +39,9 @@ function Hero() {
       slideTrack.style.transition = isTransitioning
         ? "transform 0.5s linear"
         : "none";
-      slideTrack.style.transform = `translateX(${-currentIndex * slideWidth
-        }px)`;
+      slideTrack.style.transform = `translateX(${
+        -currentIndex * slideWidth
+      }px)`;
     }
   }, [currentIndex, isTransitioning, slider.length]);
 
@@ -79,4 +79,5 @@ function Hero() {
     </div>
   );
 }
+
 export default Hero;
