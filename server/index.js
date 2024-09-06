@@ -42,7 +42,7 @@ app.use("/", slider);
 app.use("/", Setting);
 
 // port no
-const PORT = process.env.SERVER_PORT;
+const PORT = 5005;
 
 connectDB.connect((err) => {
   if (err) {
