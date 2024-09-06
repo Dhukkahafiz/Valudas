@@ -28,13 +28,9 @@ const Sidebar = ({ isOpen }) => {
         {isOpen ? (
           <>
             <Link to="/dashboard" className="brand">
-<<<<<<< HEAD
+
               <img src={require("../../../assets/images/download.png")} style={{ width: "19%" }} />
               <span className="text">Valudas</span>
-=======
-            <img src={require("../../../assets/images/download.png")} style={{width:"19%"}}/>
-            <span className="text">Valudas</span>
->>>>>>> 7f0bd4d54ae5eacb9abb139c7f27365c3f6c7442
             </Link>
             <ul className="side-menu top">
               <li
@@ -157,11 +153,7 @@ const Sidebar = ({ isOpen }) => {
         ) : (
           <>
             <Link to="/dashboard" className="brand">
-<<<<<<< HEAD
               <img src={require("../../../assets/images/download.png")} style={{ width: "35px" }} />
-=======
-              <i className="fa-brands fa-squarespace"></i>
->>>>>>> 7f0bd4d54ae5eacb9abb139c7f27365c3f6c7442
             </Link>
             <ul className="side-menu top">
               <li

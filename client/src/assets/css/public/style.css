@@ -17,7 +17,6 @@
     --color8: #eeeeee;
 }
 
-<<<<<<< HEAD
 /* Rotate the angle-up icon when the details is open */
 details .fa-angle-up {
     transition: transform 0.3s ease;
@@ -27,14 +26,6 @@ details[open] .fa-angle-up {
     transform: rotate(180deg);
 }
 
-/* When the details is closed, it will return to its original state (no rotation) */
-
-
-
-
-
-=======
->>>>>>> 7f0bd4d54ae5eacb9abb139c7f27365c3f6c7442
 *::selection,
 body::selection {
     background: var(--color2);
@@ -49,18 +40,6 @@ body::selection {
     font-family: "Montserrat", Helvetica, Arial, Lucida, sans-serif;
 }
 
-<<<<<<< HEAD
-
-
-
-/*  */
-
-
-
-/*  */
-
-=======
->>>>>>> 7f0bd4d54ae5eacb9abb139c7f27365c3f6c7442
 h1 {
     font-size: 42px;
     line-height: 1.3em;
@@ -106,10 +85,6 @@ a {
 
 .navbar-sticky {
     z-index: 1;
-<<<<<<< HEAD
-    /* position: sticky; */
-=======
->>>>>>> 7f0bd4d54ae5eacb9abb139c7f27365c3f6c7442
     position: fixed;
     background: var(--color3);
     color: var(--color4);
@@ -216,7 +191,6 @@ a {
     float: right;
 }
 
-<<<<<<< HEAD
 /* slider section  */
 
 .slider-section {
@@ -261,21 +235,15 @@ a {
 }
 
 .slider-section button {
-=======
-.slider-section i {
->>>>>>> 7f0bd4d54ae5eacb9abb139c7f27365c3f6c7442
     cursor: pointer;
     font-size: 18px;
     background-color: var(--color1);
     border-radius: 50%;
-<<<<<<< HEAD
     padding: 9px 15px;
     text-align: center;
     border: none;
-=======
     padding: 11px 15px;
     text-align: center;
->>>>>>> 7f0bd4d54ae5eacb9abb139c7f27365c3f6c7442
 }
 
 .slider-section {
@@ -370,12 +338,9 @@ a {
 
 .projects-number-section {
     background-color: var(--maincolor);
-<<<<<<< HEAD
     /* background-image: url(images/background-image.png); */
     background-image: url("../../images//background-image.png");
-=======
     background-image: url("../../../assets/images/background-image.png");
->>>>>>> 7f0bd4d54ae5eacb9abb139c7f27365c3f6c7442
     background-position: center;
     text-align: center;
     padding: 5% 6% 4% 6%;
@@ -460,11 +425,7 @@ a {
 }
 
 .review-text p {
-<<<<<<< HEAD
     height: 155px;
-=======
-    height: 138px;
->>>>>>> 7f0bd4d54ae5eacb9abb139c7f27365c3f6c7442
 }
 
 .review-content-icon {
@@ -571,10 +532,7 @@ a {
     width: 100%;
     align-items: center;
     font-size: 20px;
-<<<<<<< HEAD
     cursor: pointer;
-=======
->>>>>>> 7f0bd4d54ae5eacb9abb139c7f27365c3f6c7442
 }
 
 .cms-content-head-text-icon p {
