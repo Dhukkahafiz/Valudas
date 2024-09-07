@@ -36,6 +36,7 @@ const Slider = () => {
         slideTrack.style.transform = `translateX(${-currentIndex * slideWidth}px)`;
     }, [currentIndex, isTransitioning, slides.length]);
 
+    
     const handlePrev = () => {
         setCurrentIndex((prevIndex) => (prevIndex - 1 + slides.length) % slides.length);
     };

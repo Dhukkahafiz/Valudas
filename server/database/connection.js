@@ -8,4 +8,3 @@ const connectDB = mysql.createConnection({
 });
 
 module.exports = connectDB;
-

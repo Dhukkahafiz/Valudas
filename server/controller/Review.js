@@ -120,7 +120,7 @@ const updateReview = async (req, res) => {
     console.log(req.body);
 
     const sql = `UPDATE reviews_ SET Author = ?, description = ?, Rating = ?, Portfolio_data = ?, Service_data = ?, Meta_tags = ?, Meta_keyword = ?, Meta_desc = ?, canonical_url = ?, Updated_date = ?, Updated_by = ? WHERE Id = ?`;
-    // const values = [Author, description, Rating, JSON.stringify(Portfolio_data), JSON.stringify(Service_data), id];
+
     const values = [
       Author,
       description,
