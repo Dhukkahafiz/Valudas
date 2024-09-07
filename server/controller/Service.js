@@ -54,6 +54,20 @@ const getServicewithid = (req, res) => {
     return res.json(result);
   });
 };
+const getServicewithServiceID = (req, res) => {
+  const id = req.params.id;
+  const sql = `SELECT * FROM service_ WHERE in_Service = 1`;
+  connectDB.query(sql, [id], (error, result) => {
+    if (error) {
+      console.error("Error Getting Data from service_ Table:", error);
+      return res.status(500).json({ message: "Internal Server Error" });
+    }
+    if (result.length === 0) {
+      return res.status(404).json({ message: "Service not found" });
+    }
+    return res.json(result);
+  });
+};
 
 //  add service data
 
@@ -97,11 +111,7 @@ const addservice = (req, res) => {
     parent_id,
     Created_date,
     Created_by,
-<<<<<<< HEAD
     Meta_tags,
-=======
-        Meta_tags,
->>>>>>> 7f0bd4d54ae5eacb9abb139c7f27365c3f6c7442
     Meta_keyword,
     Meta_desc,
     canonical_url
@@ -256,4 +266,5 @@ module.exports = {
   deleteServiceData,
   updateService,
   getServicewithperent,
+  getServicewithServiceID
 };

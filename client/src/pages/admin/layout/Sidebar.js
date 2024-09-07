@@ -72,7 +72,7 @@ const Sidebar = ({ isOpen }) => {
               >
                 <Link to="/dashboard/Service_pages">
                   <i className="fa-solid fa-briefcase"></i>
-                  <span className="text">Service_pages</span>
+                  <span className="text">Service Pages</span>
                 </Link>
               </li>
               <li
@@ -106,7 +106,7 @@ const Sidebar = ({ isOpen }) => {
               >
                 <Link to="/dashboard/slider">
                   <i className="fa-solid fa-repeat"></i>
-                  <span className="text">slider Image</span>
+                  <span className="text">Slider Image</span>
                 </Link>
               </li>
               <li
@@ -126,7 +126,7 @@ const Sidebar = ({ isOpen }) => {
               >
                 <Link to="/dashboard/users">
                   <i className="fa-solid fa-users"></i>
-                  <span className="text">Users</span>
+                  <span className="text">Contact</span>
                 </Link>
               </li>
             </ul>
