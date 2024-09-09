@@ -54,17 +54,18 @@
 /* portfolo slider */
 
 .our-work-content-slider {
-    position: relative;
-    overflow: hidden;
+  position: relative;
+  overflow: hidden;
 }
+
 /* 
 .slider-content {
     position: relative;
 } */
 
 .slider-track {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
+  display: flex;
+  transition: transform 0.5s ease-in-out;
 }
 
 /* .slider-item {
@@ -73,42 +74,42 @@
 } */
 
 .slider-item img {
-    width: 90%;
-    /* height: auto; */
+  width: 90%;
+  /* height: auto; */
 }
 
 .slider-item h4 {
-    /* margin: 10px 0; */
+  /* margin: 10px 0; */
 }
 
 .slider-item p {
-    /* margin: 0; */
+  /* margin: 0; */
 }
 
 .prev,
 .next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.5);
-    color: white;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    z-index: 2;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 2;
 }
 
 .prev {
-    left: 10px;
+  left: 10px;
 }
 
 .next {
-    right: 10px;
+  right: 10px;
 }
 
 .prev i,
 .next i {
-    font-size: 20px;
+  font-size: 20px;
 }
 
 /* Rotate the angle-up icon when the details is open */
@@ -405,6 +406,7 @@ a {
   border-radius: 12px;
   margin-bottom: 18px;
 }
+
 .website-development-content:hover {
   background-color: white;
   box-shadow: var(--box-shadow);
@@ -446,13 +448,14 @@ a {
   width: 150px;
   box-shadow: var(--box-shadow);
 }
+
 .service-item-chiled img {
   height: 50px;
   width: auto;
   margin: auto;
 }
-.service-item-chiled p {
-}
+
+.service-item-chiled p {}
 
 .projects-number-section {
   background-color: var(--maincolor);
@@ -627,11 +630,11 @@ a {
 }
 
 .our-work-content-text {
-    width: 83%;
-    background-color: var(--color1);
-    padding: 50px 60px;
-    margin-right: 3%;
-    border-radius: 25px;
+  width: 83%;
+  background-color: var(--color1);
+  padding: 50px 60px;
+  margin-right: 3%;
+  border-radius: 25px;
 }
 
 .cms-content-header {
@@ -639,9 +642,10 @@ a {
   align-items: center;
   background-color: var(--color5);
   padding: 2% 6% 2% 6%;
-  border-bottom: 2px solid #e0dfdf;
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
+  border-bottom: 3px solid #EAF3F6;
+  border-radius: 8px;
+  /* border-top-left-radius: 8px;
+  border-top-right-radius: 8px; */
 }
 
 .cms-content-head-text-icon {
@@ -654,8 +658,8 @@ a {
 }
 
 .cms-content-head-text-icon p {
-  font-size: 17px;
-  font-weight: 700;
+  font-size: 16.5px;
+  font-weight: 600;
   padding-left: 13px;
 }
 

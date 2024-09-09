@@ -1,30 +1,60 @@
-import React, { useState } from 'react';
-import '../../../assets/css/public/Our.css';
-import noDataImage from '../../../assets/images/oops.png';
+import React, { useEffect, useState } from "react";
+import "../../../assets/css/public/Our.css";
+import axios from "axios";
+
+const API = process.env.REACT_APP_API_URL;
 
 const Portfolio = () => {
+  const [portfolioData, setPortfolioData] = useState([]);
+  const [services, setServices] = useState([]);
+  const [selectedServices, setSelectedServices] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const images = [
-    { src: require('../../../assets/images/slider-image1.png'), title: 'Proud Punch', description: 'Insight Experience Offers A Suite Of Experiential Business Simulation And Leadership Development And Developing New Leaders.' },
-    { src: require('../../../assets/images/slider-image2.png'), title: 'WeedMat', description: 'Insight Experience Offers A Suite Of Experiential Business Simulation And Leadership Development And Developing New Leaders.' },
-    // Add more images as needed
-    { src: require('../../../assets/images/slider-image1.png'), title: 'hello', description: 'Insight Experience Offers A Suite Of Experiential Business Simulation And Leadership Development And Developing New Leaders.' },
+  // Fetch portfolio data
+  const fetchPortfolioData = async () => {
+    try {
+      const res = await axios.get(`${API}/getportfolio`);
+      setPortfolioData(res.data);
+    } catch (error) {
+      console.log("Error fetching portfolio data:", error);
+    }
+  };
 
-  ];
+  // Fetch service data
+  const fetchServices = async () => {
+    try {
+      const res = await axios.get(`${API}/getServicewithPortfolioID`);
+      setServices(res.data);
+    } catch (error) {
+      console.log("Error fetching services data:", error);
+    }
+  };
 
-  const   prevSlide = () => {
+  // Handle service click and filter related portfolios
+  const handleServiceClick = (service) => {
+    const relatedPortfolios = portfolioData.filter((portfolio) =>
+      JSON.parse(portfolio.services).includes(service.Service_name)
+    );
+    setSelectedServices(relatedPortfolios);
+  };
+
+  useEffect(() => {
+    fetchPortfolioData();
+    fetchServices();
+  }, []);
+
+  // Slider navigation functions
+  const prevSlide = () => {
     setCurrentIndex((prevIndex) =>
-      prevIndex === images.length - 1 ? 0 : prevIndex + 1
+      prevIndex === selectedServices.length - 1 ? 0 : prevIndex + 1
     );
   };
 
   const nextSlide = () => {
     setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? images.length - 1 : prevIndex - 1
+      prevIndex === 0 ? selectedServices.length - 1 : prevIndex - 1
     );
   };
-  console.log(images[currentIndex].src)
 
   return (
     <>
@@ -33,100 +63,57 @@ const Portfolio = () => {
           <div className="text-head">
             <p>TRANSFORMING IDEAS INTO REALITY</p>
           </div>
-          <h2><span id="border-header-text">Our Work</span>: Showcasing Excellence</h2>
-          <p>Experience The Satisfaction Of Our Clients Firsthand. With 100% Of Them Awarding Us Five Star Ratings On
-            Google And Every Online Platform, Our Track Record Speaks Volumes About Our Commitment To Excellence.
+          <h2>
+            <span id="border-header-text">Our Work</span>: Showcasing Excellence
+          </h2>
+          <p>
+            Experience The Satisfaction Of Our Clients Firsthand. With 100% Of
+            Them Awarding Us Five Star Ratings On Google And Every Online
+            Platform, Our Track Record Speaks Volumes About Our Commitment To
+            Excellence.
           </p>
         </div>
 
         <div className="our-work-content">
           <div className="our-work-content-text">
-            {/* Existing content */}
-            <div className="cms-content">
-              <details className="cms-details">
-                <summary className="cms-content-header">
-                  <img src={require("../../../assets/images/CMS logo.png")} alt="CMS Logo" />
-                  <div className="cms-content-head-text-icon">
-                    <p>CMS</p>
-                    <i className="fa-solid fa-angle-up"></i>
-                  </div>
-                </summary>
+            {services.map((item) => (
+              <div key={item.id} className="cms-content">
+                {item.parent_id === 0 ? (
+                  <details className="cms-details">
+                    <summary className="cms-content-header">
+                      <img
+                        src={require("../../../assets/images/CMS logo.png")}
+                        alt="CMS Logo"
+                      />
+                      <div className="cms-content-head-text-icon">
+                        <p>{item.Service_name}</p>
+                        <i className="fa-solid fa-angle-up"></i>
+                      </div>
+                    </summary>
 
-                <div className="cms-content-dropdown-text">
-                  <span className="green-text">
-                    <p>Hubspot CMS</p>
-                    <i className="fa-solid fa-arrow-right" style={{ color: " #52a01f" }}></i>
-                  </span>
-                  <p>Wordpress</p>
-                  <p>OpenCart</p>
-                </div>
-              </details>
-            </div>
-
-            <div className="cms-content">
-              <details className="cms-details">
-                <summary className="cms-content-header">
-                  <img src={require("../../../assets/images/vs studio logo.png")} alt="CMS Logo" />
-                  <div className="cms-content-head-text-icon">
-                    <p>Custom Web Development</p>
-                    <i className="fa-solid fa-angle-up"></i>
-                  </div>
-                </summary>
-
-                <div className="cms-content-dropdown-text">
-                  <span className="green-text">
-                    <p>Hubspot CMS</p>
-                    <i className="fa-solid fa-arrow-right" style={{ color: " #52a01f" }}></i>
-                  </span>
-                  <p>Wordpress</p>
-                  <p>OpenCart</p>
-                </div>
-              </details>
-            </div>
-
-            <div className="cms-content">
-              <details className="cms-details">
-                <summary className="cms-content-header">
-                  <img src={require("../../../assets/images/Hubspot logo.png")} alt="CMS Logo" />
-                  <div className="cms-content-head-text-icon">
-                    <p>HubSpot Development</p>
-                    <i className="fa-solid fa-angle-up"></i>
-                  </div>
-                </summary>
-
-                <div className="cms-content-dropdown-text">
-                  <span className="green-text">
-                    <p>Hubspot CMS</p>
-                    <i className="fa-solid fa-arrow-right" style={{ color: " #52a01f" }}></i>
-                  </span>
-                  <p>Wordpress</p>
-                  <p>OpenCart</p>
-                </div>
-              </details>
-            </div>
-
-            <div className="cms-content">
-              <details className="cms-details">
-                <summary className="cms-content-header">
-                  <i className="fa-brands fa-android" style={{ color: "#05f649" }}></i>
-                  <div className="cms-content-head-text-icon">
-                    <p>Mobile Application</p>
-                    <i className="fa-solid fa-angle-up"></i>
-                  </div>
-                </summary>
-
-                <div className="cms-content-dropdown-text">
-                  <span className="green-text">
-                    <p>Hubspot CMS</p>
-                    <i className="fa-solid fa-arrow-right" style={{ color: " #52a01f" }}></i>
-                  </span>
-                  <p>Wordpress</p>
-                  <p>OpenCart</p>
-                </div>
-              </details>
-            </div>
+                    <div className="cms-content-dropdown-text">
+                      {services
+                        .filter((child) => child.parent_id === item.id)
+                        .map((child) => (
+                          <p
+                            key={child.id}
+                            onClick={() => handleServiceClick(child)}
+                          >
+                            {child.Service_name}
+                            <i
+                              className="fa-solid fa-arrow-right"
+                              style={{ color: "#52a01f" }}
+                            ></i>
+                          </p>
+                        ))}
+                    </div>
+                  </details>
+                ) : null}
+              </div>
+            ))}
           </div>
 
+          {/* Slider content section */}
           <div className="our-work-content-slider">
             <div className="slider-content">
               <button className="prev" onClick={prevSlide}>
@@ -136,25 +123,70 @@ const Portfolio = () => {
                 <i className="fa-solid fa-arrow-right"></i>
               </button>
               <div className="slider-track">
-
-                <div className="slider-item" >
-                  <img src={images[currentIndex === 0 ? images.length - 1 : currentIndex - 1].src} />
-                  <h4>{images[currentIndex === 0 ? images.length - 1 : currentIndex - 1].title}</h4>
-                  <p>{images[currentIndex === 0 ? images.length - 1 : currentIndex - 1].description}</p>
-                </div>
-                <div className="slider-item" >
-                <img src={images[currentIndex].src} />
-                <h4>{images[currentIndex].title}</h4>
-                <p>{images[currentIndex].description}</p>
-              </div>
-
+                {selectedServices.length > 0 ? (
+                  <>
+                    <div className="slider-item">
+                      <img
+                        src={`upload/${selectedServices[
+                          currentIndex === 0
+                            ? selectedServices.length - 1
+                            : currentIndex - 1
+                        ].Thumbnail
+                          }`}
+                        alt={
+                          selectedServices[
+                            currentIndex === 0
+                              ? selectedServices.length - 1
+                              : currentIndex - 1
+                          ].Title
+                        }
+                      />
+                      <h4>{ selectedServices
+                         [currentIndex === 0? selectedServices.length - 1
+                              : currentIndex - 1
+                          ].Title
+                        }
+                      </h4>
+                      <p
+                        dangerouslySetInnerHTML={{
+                          __html:
+                            selectedServices[
+                              currentIndex === 0
+                                ? selectedServices.length - 1
+                                : currentIndex - 1
+                            ].Short_desc,
+                        }}
+                      />
+                    </div>
+                    <div className="slider-item">
+                      <img
+                        src={`upload/${selectedServices[currentIndex].Thumbnail
+                          }`}
+                        alt={selectedServices[currentIndex].Title}
+                      />
+                      <h4>{selectedServices[currentIndex].Title}</h4>
+                      <p
+                        dangerouslySetInnerHTML={{
+                          __html:
+                            selectedServices[currentIndex].Short_desc ||
+                            "Description not available",
+                        }}
+                      />
+                    </div>
+                  </>
+                ) : (
+                  <p>No related portfolios available.</p>
+                )}
               </div>
             </div>
           </div>
         </div>
 
         <div className="inquiry-section">
-          <h5>Get Excellent Service And Support And Grow Your Business Online With Valuda’s</h5>
+          <h5>
+            Get Excellent Service And Support And Grow Your Business Online With
+            Valuda’s
+          </h5>
           <button className="inquiry-button">Inquiry Now</button>
         </div>
       </section>
@@ -162,4 +194,4 @@ const Portfolio = () => {
   );
 };
 
-export default Portfolio;
+export default Portfolio;
