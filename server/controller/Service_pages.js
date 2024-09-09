@@ -1,9 +1,5 @@
 const connectDB = require("../database/connection");
-const fs = require("fs");
-const path = require("path");
-
 // get service page
-
 const getServices_pages = async (req, res) => {
   try {
     const Que = `SELECT * FROM service_pages_`;

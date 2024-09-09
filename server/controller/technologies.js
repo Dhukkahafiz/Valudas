@@ -32,6 +32,7 @@ const getPerTechnologies = async (req, res) => {
   });
 };
 
+
 // add code
 const postTechStack = async (req, res) => {
   try {
@@ -145,4 +146,5 @@ module.exports = {
   postTechStack,
   updateTechStack,
   deleteTechnology,
+ 
 };

@@ -4,51 +4,53 @@ import axios from "axios";
 const API = process.env.REACT_APP_API_URL;
 
 function Service() {
+  const [service, setService] = useState([]);
+  const [technologies, setTechnologies] = useState([]);
+  const [selectedTechnologies, setSelectedTechnologies] = useState([]);
+  const [technologiesid, setTechnologiesid] = useState([]);
+
   useEffect(() => {
-    fetchservice();
+    fetchService();
+    fetchTechnologies();
   }, []);
 
-  const [service, setservice] = useState([]);
+  useEffect(() => {
+    if (service.length > 0) {
+      handleServiceClick(service[0]);
+    }
+  }, [service]);
 
-  const fetchservice = async () => {
+  const fetchService = async () => {
     try {
       const res = await axios.get(`${API}/getServicewithServiceID`);
-      setservice(res.data);
+      setService(res.data);
     } catch (error) {
       console.log(error);
     }
   };
-  const platforms = [
-    {
-      name: "Laravel",
-      logo: "https://static-00.iconduck.com/assets.00/node-js-icon-454x512-nztofx17.png",
-    },
-    {
-      name: "Wordpress",
-      logo: "https://static-00.iconduck.com/assets.00/node-js-icon-454x512-nztofx17.png",
-    },
-    {
-      name: "Shopify",
-      logo: "https://static-00.iconduck.com/assets.00/node-js-icon-454x512-nztofx17.png",
-    },
-    {
-      name: "Joomla",
-      logo: "https://static-00.iconduck.com/assets.00/node-js-icon-454x512-nztofx17.png",
-    },
-    {
-      name: "MERN",
-      logo: "https://static-00.iconduck.com/assets.00/node-js-icon-454x512-nztofx17.png",
-    },
-    {
-      name: "Drupal",
-      logo: "https://static-00.iconduck.com/assets.00/node-js-icon-454x512-nztofx17.png",
-    },
-  ];
+
+  const fetchTechnologies = async () => {
+    try {
+      const res = await axios.get(`${API}/getstack`);
+      setTechnologies(res.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleServiceClick = (techArray) => {
+    const parsedTechnologies = JSON.parse(techArray.Technologies);
+    const matchedTechnologies = technologies.filter((tech) =>
+      parsedTechnologies.includes(tech.Title)
+    );
+    setSelectedTechnologies(matchedTechnologies);
+    setTechnologiesid(techArray);
+  };
 
   return (
-    <section class="service-section">
-      <div class="section-header">
-        <div class="text-head">
+    <section className="service-section">
+      <div className="section-header">
+        <div className="text-head">
           <p>EMPOWERING GROWTH, FUELLING INNOVATION</p>
         </div>
         <h2>
@@ -56,19 +58,24 @@ function Service() {
           Mobile Solutions
         </h2>
         <p>
-          {" "}
           Valuda’s Offers Premier Web & Mobile Development Services, Turning
           Your App Visions Into Realities. We're More Than Exceptional
           Developers; We're Strategic Partners Guiding Your Business Towards
           Success.
         </p>
       </div>
-      <div class="service-items">
-        <div class="service-items-content">
+
+      {/* Service items */}
+      <div className="service-items">
+        <div className="service-items-content">
           {service.map((item) => (
-            <div class="website-development-content">
-              <i class="fa-solid fa-code"></i>
-              <div class="website-development-inner-text">
+            <div
+              key={item.id}
+              className="website-development-content"
+              onClick={() => handleServiceClick(item)}
+            >
+              <i className="fa-solid fa-code"></i>
+              <div className="website-development-inner-text">
                 <p>{item.Service_tagline}</p>
                 <h3>{item.Service_name}</h3>
               </div>
@@ -76,26 +83,24 @@ function Service() {
           ))}
         </div>
 
-        <div class="service-item-inner-content">
-          {/* <div className="service-item-chiled">
-            <img src="https://static-00.iconduck.com/assets.00/node-js-icon-454x512-nztofx17.png" />
-            <p>Node JS</p>
-          </div> */}
-
+        {/* Technologies section */}
+        <div className="service-item-inner-content">
           <div className="icon-grid">
-            {platforms.map((platform) => (
-              <div className="icon-card" key={platform.name}>
-                <img
-                  src={platform.logo}
-                  alt={platform.name}
-                  className="icon-logo"
-                />
-                <p>{platform.name}</p>
-              </div>
-            ))}
+            {selectedTechnologies.length > 0 ? (
+              selectedTechnologies.map((tech, index) => (
+                <div className="icon-card" key={index}>
+                  <img
+                    src={`/upload/${tech.Icon}`}
+                    alt={tech.Title}
+                    className="icon-logo"
+                  />
+                  <p>{tech.Title}</p>
+                </div>
+              ))
+            ) : (
+              <p>No technologies available</p>
+            )}
           </div>
-
-          {/* <img src={require("../../../assets/images/service-image.png")} /> */}
         </div>
       </div>
     </section>
