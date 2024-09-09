@@ -4,16 +4,24 @@ import axios from "axios";
 const API = process.env.REACT_APP_API_URL;
 
 function Service() {
+  const [service, setService] = useState([]);
+  const [technologies, setTechnologies] = useState([]);
+  const [selectedTechnologies, setSelectedTechnologies] = useState([]);
+  const [technologiesid, setTechnologiesid] = useState([]);
+
   useEffect(() => {
     fetchService();
     fetchTechnologies();
   }, []);
 
-  const [service, setService] = useState([]);
-  const [technologies, setTechnologies] = useState([]);
-  const [selectedTechnologies, setSelectedTechnologies] = useState([]);
 
-  // Fetch the services
+  useEffect(() => {
+    if (service.length > 0) {
+      handleServiceClick(service[0]);
+    }
+  }, [service]);
+
+
   const fetchService = async () => {
     try {
       const res = await axios.get(`${API}/getServicewithServiceID`);
@@ -23,24 +31,27 @@ function Service() {
     }
   };
 
-  // Fetch the available technologies
+
   const fetchTechnologies = async () => {
     try {
       const res = await axios.get(`${API}/getstack`);
-      setTechnologies(res.data); // Save technologies with their icons
+      setTechnologies(res.data);
+
     } catch (error) {
       console.log(error);
     }
   };
 
-  // Handle clicking on a service to display technologies
+
+
   const handleServiceClick = (techArray) => {
-    const parsedTechnologies = JSON.parse(techArray); // Parse the stringified array
-    // Find the matching technologies with icons
+    const parsedTechnologies = JSON.parse(techArray.Technologies);
     const matchedTechnologies = technologies.filter((tech) =>
       parsedTechnologies.includes(tech.Title)
     );
-    setSelectedTechnologies(matchedTechnologies); // Set the technologies with icons
+    setSelectedTechnologies(matchedTechnologies);
+    setTechnologiesid(techArray);
+
   };
 
   return (
@@ -68,7 +79,9 @@ function Service() {
             <div
               key={item.id}
               className="website-development-content"
-              onClick={() => handleServiceClick(item.Technologies)}
+
+              onClick={() => handleServiceClick(item)}
+
             >
               <i className="fa-solid fa-code"></i>
               <div className="website-development-inner-text">
@@ -86,7 +99,10 @@ function Service() {
               selectedTechnologies.map((tech, index) => (
                 <div className="icon-card" key={index}>
                   <img
-                    src={`/upload/${tech.Icon}`} // Assuming the images are stored in /uploads
+
+
+                    src={`/upload/${tech.Icon}`}
+
                     alt={tech.Title}
                     className="icon-logo"
                   />

@@ -13,6 +13,8 @@ router
 
 router.get("/getPerTechnologies/:id", technology.getPerTechnologies);
 
+
+
 router
   .route("/updatestack/:id")
   .put(

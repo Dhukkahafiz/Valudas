@@ -9,6 +9,33 @@ const Portfolio = () => {
   const [services, setServices] = useState([]);
   const [selectedServices, setSelectedServices] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [portfolio, setportfolio] = useState([]);
+  const [Portfoliodata, setportfoliodata] = useState([]);
+  const [filteredPortfolio, setFilteredPortfolio] = useState([]);
+  // const [selectedService, setSelectedService] = useState(null);
+  console.log(Portfoliodata);
+
+  useEffect(() => {
+    fetchPortfoliowithid();
+    fetchPortfolio();
+  }, []);
+
+  const fetchPortfoliowithid = async () => {
+    try {
+      const res = await axios.get(`${API}/getServicewithPortfolioID`);
+      setportfolio(res.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const fetchPortfolio = async () => {
+    try {
+      const res = await axios.get(`${API}/getportfolio`);
+      setportfoliodata(res.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   // Fetch portfolio data
   const fetchPortfolioData = async () => {
@@ -44,6 +71,9 @@ const Portfolio = () => {
   }, []);
 
   // Slider navigation functions
+
+
+
   const prevSlide = () => {
     setCurrentIndex((prevIndex) =>
       prevIndex === selectedServices.length - 1 ? 0 : prevIndex + 1
@@ -55,6 +85,19 @@ const Portfolio = () => {
       prevIndex === 0 ? selectedServices.length - 1 : prevIndex - 1
     );
   };
+
+
+  const handleServiceClick = (childItem) => {
+    // Filter portfolio data based on Service_name
+    const filtered = Portfoliodata.filter((portfolioItem) =>
+      portfolioItem.services
+        .toLowerCase()
+        .includes(childItem.Service_name.toLowerCase())
+    );
+
+    setFilteredPortfolio(filtered);
+  };
+r
 
   return (
     <>
@@ -76,8 +119,10 @@ const Portfolio = () => {
 
         <div className="our-work-content">
           <div className="our-work-content-text">
+
             {services.map((item) => (
               <div key={item.id} className="cms-content">
+
                 {item.parent_id === 0 ? (
                   <details className="cms-details">
                     <summary className="cms-content-header">
@@ -92,6 +137,7 @@ const Portfolio = () => {
                     </summary>
 
                     <div className="cms-content-dropdown-text">
+
                       {services
                         .filter((child) => child.parent_id === item.id)
                         .map((child) => (
@@ -105,7 +151,8 @@ const Portfolio = () => {
                               style={{ color: "#52a01f" }}
                             ></i>
                           </p>
-                        ))}
+
+
                     </div>
                   </details>
                 ) : null}
@@ -123,6 +170,7 @@ const Portfolio = () => {
                 <i className="fa-solid fa-arrow-right"></i>
               </button>
               <div className="slider-track">
+
                 {selectedServices.length > 0 ? (
                   <>
                     <div className="slider-item">
@@ -177,6 +225,7 @@ const Portfolio = () => {
                 ) : (
                   <p>No related portfolios available.</p>
                 )}
+
               </div>
             </div>
           </div>
@@ -187,7 +236,26 @@ const Portfolio = () => {
             Get Excellent Service And Support And Grow Your Business Online With
             Valuda’s
           </h5>
+
           <button className="inquiry-button">Inquiry Now</button>
+        </div>
+
+        <div>
+          {/* Render filtered portfolio data */}
+          {filteredPortfolio.length > 0 ? (
+            filteredPortfolio.map((item) => (
+              <div key={item.Id}>
+                <h4>{item.Title}</h4>
+                <p dangerouslySetInnerHTML={{ __html: item.Short_desc }} />
+                <img
+                  src={`${API}/path/to/thumbnails/${item.Thumbnail}`}
+                  alt={item.Title}
+                />
+              </div>
+            ))
+          ) : (
+            <p>No matching portfolio found for the selected service.</p>
+          )}
         </div>
       </section>
     </>
