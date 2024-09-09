@@ -54,6 +54,8 @@ const getServicewithid = (req, res) => {
     return res.json(result);
   });
 };
+
+
 const getServicewithServiceID = (req, res) => {
   const id = req.params.id;
   const sql = `SELECT * FROM service_ WHERE in_Service = 1`;

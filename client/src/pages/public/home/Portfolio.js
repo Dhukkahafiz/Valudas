@@ -5,6 +5,9 @@ import axios from "axios";
 const API = process.env.REACT_APP_API_URL;
 
 const Portfolio = () => {
+  const [portfolioData, setPortfolioData] = useState([]);
+  const [services, setServices] = useState([]);
+  const [selectedServices, setSelectedServices] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [portfolio, setportfolio] = useState([]);
   const [Portfoliodata, setportfoliodata] = useState([]);
@@ -34,38 +37,55 @@ const Portfolio = () => {
     }
   };
 
-  const images = [
-    {
-      src: require("../../../assets/images/slider-image1.png"),
-      title: "Proud Punch",
-      description:
-        "Insight Experience Offers A Suite Of Experiential Business Simulation And Leadership Development And Developing New Leaders.",
-    },
-    {
-      src: require("../../../assets/images/slider-image2.png"),
-      title: "WeedMat",
-      description:
-        "Insight Experience Offers A Suite Of Experiential Business Simulation And Leadership Development And Developing New Leaders.",
-    },
-    {
-      src: require("../../../assets/images/slider-image1.png"),
-      title: "hello",
-      description:
-        "Insight Experience Offers A Suite Of Experiential Business Simulation And Leadership Development And Developing New Leaders.",
-    },
-  ];
+  // Fetch portfolio data
+  const fetchPortfolioData = async () => {
+    try {
+      const res = await axios.get(`${API}/getportfolio`);
+      setPortfolioData(res.data);
+    } catch (error) {
+      console.log("Error fetching portfolio data:", error);
+    }
+  };
+
+  // Fetch service data
+  const fetchServices = async () => {
+    try {
+      const res = await axios.get(`${API}/getServicewithPortfolioID`);
+      setServices(res.data);
+    } catch (error) {
+      console.log("Error fetching services data:", error);
+    }
+  };
+
+  // Handle service click and filter related portfolios
+  const handleServiceClick = (service) => {
+    const relatedPortfolios = portfolioData.filter((portfolio) =>
+      JSON.parse(portfolio.services).includes(service.Service_name)
+    );
+    setSelectedServices(relatedPortfolios);
+  };
+
+  useEffect(() => {
+    fetchPortfolioData();
+    fetchServices();
+  }, []);
+
+  // Slider navigation functions
+
+
 
   const prevSlide = () => {
     setCurrentIndex((prevIndex) =>
-      prevIndex === images.length - 1 ? 0 : prevIndex + 1
+      prevIndex === selectedServices.length - 1 ? 0 : prevIndex + 1
     );
   };
 
   const nextSlide = () => {
     setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? images.length - 1 : prevIndex - 1
+      prevIndex === 0 ? selectedServices.length - 1 : prevIndex - 1
     );
   };
+
 
   const handleServiceClick = (childItem) => {
     // Filter portfolio data based on Service_name
@@ -77,6 +97,7 @@ const Portfolio = () => {
 
     setFilteredPortfolio(filtered);
   };
+r
 
   return (
     <>
@@ -98,8 +119,10 @@ const Portfolio = () => {
 
         <div className="our-work-content">
           <div className="our-work-content-text">
-            {portfolio.map((item) => (
-              <div className="cms-content" key={item.id}>
+
+            {services.map((item) => (
+              <div key={item.id} className="cms-content">
+
                 {item.parent_id === 0 ? (
                   <details className="cms-details">
                     <summary className="cms-content-header">
@@ -114,21 +137,22 @@ const Portfolio = () => {
                     </summary>
 
                     <div className="cms-content-dropdown-text">
-                      {portfolio
-                        .filter((childItem) => childItem.parent_id === item.id)
-                        .map((childItem) => (
-                          <span
-                            className="green-text"
-                            key={childItem.id}
-                            onClick={() => handleServiceClick(childItem)}
+
+                      {services
+                        .filter((child) => child.parent_id === item.id)
+                        .map((child) => (
+                          <p
+                            key={child.id}
+                            onClick={() => handleServiceClick(child)}
                           >
-                            <p>{childItem.Service_name}</p>
+                            {child.Service_name}
                             <i
                               className="fa-solid fa-arrow-right"
-                              style={{ color: " #52a01f" }}
+                              style={{ color: "#52a01f" }}
                             ></i>
-                          </span>
-                        ))}
+                          </p>
+
+
                     </div>
                   </details>
                 ) : null}
@@ -136,6 +160,7 @@ const Portfolio = () => {
             ))}
           </div>
 
+          {/* Slider content section */}
           <div className="our-work-content-slider">
             <div className="slider-content">
               <button className="prev" onClick={prevSlide}>
@@ -145,40 +170,62 @@ const Portfolio = () => {
                 <i className="fa-solid fa-arrow-right"></i>
               </button>
               <div className="slider-track">
-                <div className="slider-item">
-                  <img
-                    src={
-                      images[
-                        currentIndex === 0
-                          ? images.length - 1
-                          : currentIndex - 1
-                      ].src
-                    }
-                  />
-                  <h4>
-                    {
-                      images[
-                        currentIndex === 0
-                          ? images.length - 1
-                          : currentIndex - 1
-                      ].title
-                    }
-                  </h4>
-                  <p>
-                    {
-                      images[
-                        currentIndex === 0
-                          ? images.length - 1
-                          : currentIndex - 1
-                      ].description
-                    }
-                  </p>
-                </div>
-                <div className="slider-item">
-                  <img src={images[currentIndex].src} />
-                  <h4>{images[currentIndex].title}</h4>
-                  <p>{images[currentIndex].description}</p>
-                </div>
+
+                {selectedServices.length > 0 ? (
+                  <>
+                    <div className="slider-item">
+                      <img
+                        src={`upload/${selectedServices[
+                          currentIndex === 0
+                            ? selectedServices.length - 1
+                            : currentIndex - 1
+                        ].Thumbnail
+                          }`}
+                        alt={
+                          selectedServices[
+                            currentIndex === 0
+                              ? selectedServices.length - 1
+                              : currentIndex - 1
+                          ].Title
+                        }
+                      />
+                      <h4>{ selectedServices
+                         [currentIndex === 0? selectedServices.length - 1
+                              : currentIndex - 1
+                          ].Title
+                        }
+                      </h4>
+                      <p
+                        dangerouslySetInnerHTML={{
+                          __html:
+                            selectedServices[
+                              currentIndex === 0
+                                ? selectedServices.length - 1
+                                : currentIndex - 1
+                            ].Short_desc,
+                        }}
+                      />
+                    </div>
+                    <div className="slider-item">
+                      <img
+                        src={`upload/${selectedServices[currentIndex].Thumbnail
+                          }`}
+                        alt={selectedServices[currentIndex].Title}
+                      />
+                      <h4>{selectedServices[currentIndex].Title}</h4>
+                      <p
+                        dangerouslySetInnerHTML={{
+                          __html:
+                            selectedServices[currentIndex].Short_desc ||
+                            "Description not available",
+                        }}
+                      />
+                    </div>
+                  </>
+                ) : (
+                  <p>No related portfolios available.</p>
+                )}
+
               </div>
             </div>
           </div>

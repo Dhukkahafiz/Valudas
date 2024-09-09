@@ -10,7 +10,7 @@ const Review = () => {
             <p>OUR CLIENTS SPEAK, AND THEY SPEAK HIGHLY</p>
           </div>
           <h2><span id="border-header-text">Great Reviews</span> with Positive Feedback</h2>
-          <p> Experience The Satisfaction Of Our Clients Firsthand. With 100% Of Them Awarding Us Five Star Ratings On
+          <p>Experience The Satisfaction Of Our Clients Firsthand. With 100% Of Them Awarding Us Five Star Ratings On
             Google And Every Online Platform, Our Track Record Speaks Volumes About Our Commitment To Excellence.
           </p>
         </div>

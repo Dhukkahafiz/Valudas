@@ -14,11 +14,13 @@ function Service() {
     fetchTechnologies();
   }, []);
 
+
   useEffect(() => {
     if (service.length > 0) {
       handleServiceClick(service[0]);
     }
   }, [service]);
+
 
   const fetchService = async () => {
     try {
@@ -29,14 +31,18 @@ function Service() {
     }
   };
 
+
   const fetchTechnologies = async () => {
     try {
       const res = await axios.get(`${API}/getstack`);
       setTechnologies(res.data);
+
     } catch (error) {
       console.log(error);
     }
   };
+
+
 
   const handleServiceClick = (techArray) => {
     const parsedTechnologies = JSON.parse(techArray.Technologies);
@@ -45,6 +51,7 @@ function Service() {
     );
     setSelectedTechnologies(matchedTechnologies);
     setTechnologiesid(techArray);
+
   };
 
   return (
@@ -72,7 +79,9 @@ function Service() {
             <div
               key={item.id}
               className="website-development-content"
+
               onClick={() => handleServiceClick(item)}
+
             >
               <i className="fa-solid fa-code"></i>
               <div className="website-development-inner-text">
@@ -90,7 +99,10 @@ function Service() {
               selectedTechnologies.map((tech, index) => (
                 <div className="icon-card" key={index}>
                   <img
+
+
                     src={`/upload/${tech.Icon}`}
+
                     alt={tech.Title}
                     className="icon-logo"
                   />

@@ -7,8 +7,12 @@ router.route("/getservice").get(service.getService);
 router.route("/getperent").get(service.getServicewithperent);
 
 router.route("/getservice/:id").get(service.getServicewithid);
-router.route("/getServicewithServiceID").get(service.getServicewithServiceID); 
+
+router.route("/getServicewithServiceID").get(service.getServicewithServiceID);
 router.route("/getServicewithPortfolioID").get(service.getServicewithPortfolioID);
+
+
+
 
 router
   .route("/addService")
